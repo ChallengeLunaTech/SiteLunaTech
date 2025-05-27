@@ -403,10 +403,6 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
             .hamburger{
                 display: block;
             }
