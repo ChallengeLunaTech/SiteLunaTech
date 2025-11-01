@@ -309,6 +309,9 @@ footer {
 }
 
 /* Team Section */
+#team {
+    padding-top: 60px;
+}
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -508,4 +511,185 @@ footer {
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Historia Timeline (vertical alternada) */
+#historia {
+    background: #ffffff;
+    padding-bottom: 40px;
+}
+
+#historia .text-center .section-heading {
+    color: #08054B;
+}
+
+#historia .text-center .section-subheading {
+    color: #666;
+    margin-top: -1rem;
+}
+
+#historia .timeline {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 3rem auto 0;
+    max-width: 1000px;
+    background: transparent; /* sobrescreve .timeline global */
+}
+
+#historia .timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #08054B 0%, #CF035C 100%);
+    border-radius: 4px;
+    opacity: 0.15;
+}
+
+#historia .timeline > li {
+    position: relative;
+    margin: 3.5rem 0;
+}
+
+#historia .timeline > li::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#historia .timeline .timeline-image {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #08054B;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    border: 6px solid #f8f9fa;
+    z-index: 2;
+    overflow: hidden;
+}
+
+#historia .timeline .timeline-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#historia .timeline .timeline-panel {
+    position: relative;
+    width: 42%;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Lado esquerdo (default) */
+#historia .timeline > li .timeline-panel {
+    float: left;
+    text-align: right;
+}
+
+#historia .timeline > li .timeline-panel:before {
+    content: '';
+    position: absolute;
+    top: 42px;
+    right: -12px;
+    border-width: 12px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ffffff;
+}
+
+/* Lado direito (inverted) */
+#historia .timeline > li.timeline-inverted .timeline-panel {
+    float: right;
+    text-align: left;
+}
+
+#historia .timeline > li.timeline-inverted .timeline-panel:before {
+    content: '';
+    position: absolute;
+    top: 42px;
+    left: -12px;
+    border-width: 12px;
+    border-style: solid;
+    border-color: transparent #ffffff transparent transparent;
+}
+
+#historia .timeline .timeline-heading h4 {
+    color: #08054B;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+}
+
+#historia .timeline .timeline-heading .subheading {
+    color: #CF035C;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+#historia .timeline .timeline-body p {
+    color: #555;
+}
+
+#historia .timeline > li .timeline-image h4 {
+    padding: 0 12px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Hover sutil nos cards */
+#historia .timeline .timeline-panel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    transition: all 0.25s ease;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    #historia .timeline .timeline-panel {
+        width: 46%;
+    }
+}
+
+@media (max-width: 768px) {
+    #historia .timeline:before {
+        left: 32px;
+        transform: none;
+    }
+
+    #historia .timeline .timeline-image {
+        left: 32px;
+        width: 64px;
+        height: 64px;
+        border-width: 4px;
+    }
+
+    #historia .timeline .timeline-panel,
+    #historia .timeline > li.timeline-inverted .timeline-panel {
+        float: none;
+        width: auto;
+        margin-left: 100px;
+        text-align: left;
+    }
+
+    #historia .timeline > li .timeline-panel:before,
+    #historia .timeline > li.timeline-inverted .timeline-panel:before {
+        left: -12px;
+        right: auto;
+        border-color: transparent #ffffff transparent transparent;
+    }
 }
